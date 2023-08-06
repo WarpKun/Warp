@@ -3,7 +3,6 @@
 #include <locale.h>// biblioteca de alocação de texto por região
 #include <string.h>// biblioteca responsavel pelas strings
 
-
 int registro() //responsavel por cadastrar os usuários no sitemas
 {	
 	char arquivo[30];//criação de variaveis/variaveis
@@ -113,12 +112,19 @@ int deletar()
 		system("pause");
 	}
 	
+	int exit (){ //comando para conseguir fechar o sitema
+	
+	system("pause");
+	exit(0);
+	
+	}
 }
 
 
 
 int main()
 {
+
 	int opcao=0;
 	int x=1;
 	
@@ -136,7 +142,8 @@ int main()
 	printf("escolha a opção desejada:\n\n");//inicio das esoclhas
 	printf("1-cadsatrar usuario\n");
 	printf("2-consultar usuarios\n");
-	printf("3-deletar usuario\n\n");
+	printf("3-deletar usuario\n");
+	printf("4-sair\n\n");
 	printf("opção desejada:");
 	
 	scanf("%d", &opcao);//pausa o programa e espera a resposta do ussuario
@@ -156,6 +163,13 @@ int main()
 		case 3: 
 			deletar();
 			break;
+		
+		case 4:
+			printf("obrigado por acessar o site de resgistro da EBAC!\n\n");
+			exit(0);
+			break;
+			
+		
 			
 		default:	
 			printf ("essa opção esta indisponivel\n\n");
