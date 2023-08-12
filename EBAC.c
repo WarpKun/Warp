@@ -21,11 +21,12 @@ int registro() //Função responsavel por cadastrar os usuários no sistema
 	
 	FILE *file; // cria o arquivo
 	file = fopen(arquivo, "w"); // cria o arquivo e o "w" significa escrever
+	fprintf(file,"\n CPF:");
 	fprintf(file,cpf); // salvo o valor da variavel
 	fclose(file); // fecha o arquivo
 	
 	file = fopen(arquivo, "a");
-	fprintf(file,",");
+	fprintf(file,"\n NOME:");
 	fclose(file);
 	
 	printf("Digite o nome a ser cadastrado: ");
@@ -36,7 +37,7 @@ int registro() //Função responsavel por cadastrar os usuários no sistema
 	fclose(file);
 	
 	file = fopen(arquivo, "a");
-	fprintf(file,",");
+	fprintf(file,"\n SOBRENOME:");
 	fclose(file);
 	
 	printf("Digite o sobrenome a ser cadastrado: ");
@@ -47,7 +48,7 @@ int registro() //Função responsavel por cadastrar os usuários no sistema
 	fclose(file);
 	
 	file = fopen(arquivo, "a");
-	fprintf(file,",");
+	fprintf(file,"\n CARGO:");
 	fclose(file);
 	
 	printf("Digite o cargo a ser cadastrado: ");
@@ -55,7 +56,7 @@ int registro() //Função responsavel por cadastrar os usuários no sistema
 	
 	file = fopen(arquivo, "a");
 	fprintf(file,cargo);
-	fclose(file);	
+	fclose(file);
 	
     printf("cadastro realizado com sucesso!\n\n");
 	system("pause");
@@ -72,18 +73,20 @@ int consulta()
 	
 	printf("digite o cpf a ser consultado:");
 	scanf("%s", cpf);
+	printf("\n");
 	
 	FILE *file;
 	file=fopen(cpf, "r");// (r)= read/ ler
 	
 	if (file==NULL) // se o arquivo for nulo ou nao for encontrado
 	{ 
-		printf("usuario nao encontrado");
+		printf("usuario nao encontrado. \n");
 	}
 	
-		while(fgets(conteudo, 200, file)!=NULL) 
-	{	
 		printf("essas são as informações do usuario:");
+		
+		while(fgets(conteudo, 200, file)!=NULL)	 
+	{	
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
